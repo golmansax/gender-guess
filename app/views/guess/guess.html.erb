@@ -1,0 +1,9 @@
+<h1>Based on the data, I think you are ...</h1>
+
+<h1>
+  <%= @guessed_gender == 'M' ? 'Male' : 'Female' %>
+</h1>
+
+Am I right?
+<%= button_to 'Yes', { action: 'correct', height: @height, weight: @weight, guessed_gender: @guessed_gender } %>
+<%= button_to 'No', { action: 'incorrect', height: @height, weight: @weight, guessed_gender: @guessed_gender } %>

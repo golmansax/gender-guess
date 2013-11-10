@@ -1,0 +1,11 @@
+<h1>Enter your height and weight and let me guess your gender</h1>
+
+<%= form_for :person, url: guess_parse_path do |form| %>
+  <%= form.label :height %>
+  <%= form.text_field :height %>
+
+  <%= form.label :weight %>
+  <%= form.text_field :weight %>
+
+  <%= form.submit 'Try me!' %>
+<% end %>

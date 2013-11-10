@@ -1,18 +1,23 @@
 GenderGuess::Application.routes.draw do
-  # The priority is based upon order of creation: first created -> highest priority.
-  # See how all your routes lay out with "rake routes".
+  # Root
+  root 'guess#form'
 
-  # You can have the root of your site routed with "root"
-  root 'people#gender_guess'
+  # For guessing
+  get '/guess/:height/:weight' => 'guess#guess', as: :guess
+  post '/guess_parse' => 'guess#guess_parse', as: :guess_parse
 
-  # Example of regular route:
-  #   get 'products/:id' => 'catalog#view'
+  # For saving the result in DB
+  post '/guess/correct' => 'guess#correct'
+  post '/guess/incorrect' => 'guess#incorrect'
+
+  # Display results
+  get '/results' => 'guess#results'
 
   # Example of named route that can be invoked with purchase_url(id: product.id)
   #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase
 
   # Example resource route (maps HTTP verbs to controller actions automatically):
-  resources :people
+  #   resources :people
 
   # Example resource route with options:
   #   resources :products do
