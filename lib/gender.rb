@@ -1,5 +1,7 @@
 module Gender
   # Let's store in here the function we use to calculate gender
+  #   @param(height) - should be a number in inches
+  #   @param(weight) - should be a number in pounds
   def self.calc(height, weight)
     # Manually calculated linear regression model
     # - > 0 is male, < 0 is female

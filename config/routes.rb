@@ -1,17 +1,20 @@
 GenderGuess::Application.routes.draw do
-  # Root
-  root 'guess#form'
+  # This site will be served entirely from this route
+  scope '/gender-guess' do
+    # Root
+    root 'guess#form'
 
-  # For guessing
-  get '/guess/:height/:weight' => 'guess#guess', as: :guess
-  post '/guess_parse' => 'guess#guess_parse', as: :guess_parse
+    # For guessing
+    get 'guess/:height/:weight' => 'guess#guess', as: :guess
+    post 'guess_parse' => 'guess#guess_parse', as: :guess_parse
 
-  # For saving the result in DB
-  post '/guess/correct' => 'guess#correct'
-  post '/guess/incorrect' => 'guess#incorrect'
+    # For saving the result in DB
+    post 'guess/correct' => 'guess#correct'
+    post 'guess/incorrect' => 'guess#incorrect'
 
-  # Display results
-  get '/results' => 'guess#results'
+    # Display results
+    get 'results' => 'guess#results'
+  end
 
   # Example of named route that can be invoked with purchase_url(id: product.id)
   #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase
