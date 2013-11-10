@@ -1,11 +1,30 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  height: 
-  weight: 
-  gender: MyString
+# Sample male
+holman:
+  height: 72
+  weight: 165
+  gender: 'M'
 
-two:
-  height: 
-  weight: 
-  gender: MyString
+# Sample female
+scarlett:
+  height: 65
+  weight: 125
+  gender: 'F'
+
+# Bogus gender
+bogus_gender:
+  height: 80
+  weight: 177
+  gender: 'bogus'
+
+# Negative inputs
+negative_height:
+  height: -65
+  weight: 120
+  gender: 'F'
+
+negative_weight:
+  height: 70
+  weight: -130
+  gender: 'M'
