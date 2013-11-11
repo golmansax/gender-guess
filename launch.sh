@@ -19,13 +19,18 @@ wrong_dir() {
 
 if [ $# -lt 1 ]; then usage; fi
 
+bundle install
+
 if [ $1 == 'dev' ]; then
+  # Migrate db
+  rake db:migrate
+
   rails server
 elif [ $1 == 'prod' ]; then
   # Migrate db
   rake db:migrate RAILS_ENV=production
 
-  rails server -e production -p $PROD_PORT
+  rails server -e production -p $PROD_PORT -d
 else
   usage
 fi
