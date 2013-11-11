@@ -1,7 +1,0 @@
-<h1>Enter your height and weight and let me guess your gender</h1>
-
-<%= form_for :person guess_path do %>
-  <%= text_field_tag 'height', nil, placeholder: 'Enter height' %>
-  <%= text_field_tag 'weight', nil, placeholder: 'Enter weight' %>
-  <%= submit_tag 'Try me!' %>
-<% end %>
