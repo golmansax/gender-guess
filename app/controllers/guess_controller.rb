@@ -5,6 +5,7 @@ class GuessController < ApplicationController
   def form
   end
 
+  # POST layer from form
   def guess_parse
     redirect_to guess_path(form_params)
   end
@@ -16,19 +17,20 @@ class GuessController < ApplicationController
     @guessed_gender = Gender.calc(@height, @weight)
   end
 
+  # If our guess was correct
   def correct
     create_and_save_person(guess_params)
     redirect_to action: 'results'
   end
 
+  # If our guess was incorrect
   def incorrect
     create_and_save_person(guess_params, { flip_gender: true })
     redirect_to action: 'results'
   end
 
-  # Display results on how good the algorithm is
+  # Display results on how good the algorithm is (TODO)
   def results
-    # TODO check if save succeeded
   end
 
   private
@@ -48,7 +50,8 @@ class GuessController < ApplicationController
         gender: gender
       )
 
-      if not person.save!
+      if not person.save
+        # TODO what if save fails?
       end
     end
 end
