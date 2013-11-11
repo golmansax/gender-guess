@@ -1,7 +1,7 @@
-== README
+== Gender Guess
 
-Small app that asks user for height and weight and tries to guess gender from
-that information.
+Small Rails app that asks user for height and weight and tries to guess gender
+from that information.
 
 TODOs:
 - Add unit (lb/kg/cm/in.) checking
