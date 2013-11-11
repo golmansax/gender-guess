@@ -9,8 +9,8 @@ GenderGuess::Application.routes.draw do
     post 'guess_parse' => 'guess#guess_parse', as: :guess_parse
 
     # For saving the result in DB
-    post 'guess/correct' => 'guess#correct'
-    post 'guess/incorrect' => 'guess#incorrect'
+    post 'guess/correct' => 'guess#correct', as: :correct
+    post 'guess/incorrect' => 'guess#incorrect', as: :incorrect
 
     # Display results
     get 'results' => 'guess#results'
