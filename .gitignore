@@ -15,5 +15,8 @@
 /log/*.log
 /tmp
 
-# Ignore Vim swp files
+# Generated assets
+/public/assets
+
+# Vim swp files
 *.swp
