@@ -1,28 +1,11 @@
 == README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Small app that asks user for height and weight and tries to guess gender from
+that information.
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+TODOs:
+- Add unit (lb/kg/cm/in.) checking
+- Make site look prettier
+- Have site occasionally recompile linear regression
+- Batch insert data into DB
+- Display stats on success rate
