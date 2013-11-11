@@ -19,21 +19,24 @@ wrong_dir() {
 
 if [ $# -lt 1 ]; then usage; fi
 
+git pull
 bundle install
 
 if [ $1 == 'dev' ]; then
-  # Migrate db
+  echo '*** Migrating db ***'
   rake db:migrate
 
+  echo '*** Starting server ***'
   rails server
 elif [ $1 == 'prod' ]; then
-  # Migrate db
   echo '*** Migrating db ***'
   rake db:migrate RAILS_ENV=production
 
-  # Make sure tests pass
   echo '*** Making sure tests pass ***'
   rake test
+
+  echo '*** Compiling assets ***'
+  bundle exec rake assets:precompile
 
   echo '*** Starting server ***'
   rails server -e production -p $PROD_PORT -d
