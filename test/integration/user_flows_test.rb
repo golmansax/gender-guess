@@ -4,7 +4,7 @@ class UserFlowsTest < ActionDispatch::IntegrationTest
   fixtures :people
 
   test "correct guess" do
-    get root_url
+    get form_path
 
     # Mimic entering in height and weight
     person = people(:scarlett)

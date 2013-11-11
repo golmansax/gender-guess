@@ -2,7 +2,7 @@ GenderGuess::Application.routes.draw do
   # This site will be served entirely from this route
   scope '/gender-guess' do
     # Root
-    root 'guess#form'
+    root 'guess#form', as: :form
 
     # For guessing
     get 'guess/:height/:weight' => 'guess#guess', as: :guess

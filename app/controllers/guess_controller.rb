@@ -3,11 +3,25 @@ class GuessController < ApplicationController
 
   # Form to enter in height and weight
   def form
+    # We maintain a dummy person in case we get invalid height or weight inputs
+    if params[:height]
+      @height = params[:height]
+      @weight = params[:weight]
+
+      dummy_person = make_person_with_dummy_gender(person_params)
+      @invalid = !dummy_person.valid?
+    end
   end
 
   # POST layer from form
   def guess_parse
-    redirect_to guess_path(form_params)
+    dummy_person = make_person_with_dummy_gender(form_params)
+
+    if not dummy_person.valid?
+      redirect_to form_path(form_params)
+    else
+      redirect_to guess_path(form_params)
+    end
   end
 
   # Let's make the guess, and see what the user thinks
@@ -39,7 +53,11 @@ class GuessController < ApplicationController
     end
 
     def guess_params
-      return params.permit(:height, :weight, :guessed_gender)
+      return person_params.permit(:guessed_gender)
+    end
+
+    def person_params
+      return params.permit(:height, :weight)
     end
 
     def create_and_save_person(params, options = {})
@@ -53,5 +71,10 @@ class GuessController < ApplicationController
       if not person.save
         # TODO what if save fails?
       end
+    end
+
+    def make_person_with_dummy_gender(params)
+      params[:gender] = 'M'
+      return Person.new(params)
     end
 end
