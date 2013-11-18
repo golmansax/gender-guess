@@ -20,3 +20,9 @@
 
 # Vim swp files
 *.swp
+
+# OCaml build files
+_build
+
+# Generated files
+generated-*
