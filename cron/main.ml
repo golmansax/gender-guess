@@ -5,7 +5,6 @@
  *)
 
 open Sqlite3
-open Two_var_lin_reg
 
 module Person = struct
   type t = {
