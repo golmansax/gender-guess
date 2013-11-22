@@ -49,15 +49,15 @@ class GuessController < ApplicationController
 
   private
     def form_params
-      return params.require(:person).permit(:height, :weight)
+      params.require(:person).permit(:height, :weight)
     end
 
     def guess_params
-      return person_params.permit(:guessed_gender)
+      params.permit(:height, :weight, :guessed_gender)
     end
 
     def person_params
-      return params.permit(:height, :weight)
+      params.permit(:height, :weight)
     end
 
     def create_and_save_person(params, options = {})
@@ -70,6 +70,7 @@ class GuessController < ApplicationController
 
       if not person.save
         # TODO what if save fails?
+        puts 'Could not save'
       end
     end
 
