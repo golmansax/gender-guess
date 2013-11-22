@@ -29,7 +29,7 @@ let eval_gender gender = match gender with
 | _ -> assert false
 
 let get_people () =
-  let db = db_open ~mode:`READONLY "../db/development.sqlite3"
+  let db = db_open ~mode:`READONLY "../db/production.sqlite3"
   in
   try
     let people = ref [] in
