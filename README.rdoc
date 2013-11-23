@@ -6,6 +6,4 @@ from that information.
 TODOs:
 - Add unit (lb/kg/cm/in.) checking
 - Make site look prettier
-- Have site occasionally recompile linear regression
-- Batch insert data into DB
 - Display stats on success rate
