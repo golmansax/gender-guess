@@ -1,0 +1,3 @@
+[submodule "cron/lib/two-var-lin-reg"]
+	path = cron/lib/two-var-lin-reg
+	url = https://github.com/golmansax/two-var-lin-reg
