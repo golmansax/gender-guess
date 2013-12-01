@@ -13,9 +13,8 @@ if [ $# -lt 1 ]; then usage; fi
 MY_DIR=`dirname $0`
 cd $MY_DIR
 make
-./make_coeffs.byte
+#./make_coeffs.byte
 
 # Restart Rails server
 cd `git rev-parse --show-toplevel`
-pkill --full rails
 ./launch.sh $1

@@ -2,13 +2,13 @@
 #
 # @author holman
 #
-# Shortcut script to launch Rails web server
+# Shortcut script to deploy Rails web server
 
 # Keep this sync'd with my-config/ports
 PROD_PORT=7701
 
 usage() {
-  echo 'Usage ./launch.sh (dev|prod)'
+  echo 'Usage ./deploy.sh (dev|prod)'
   exit
 }
 
@@ -20,6 +20,10 @@ wrong_dir() {
 if [ $# -lt 1 ]; then usage; fi
 
 git pull
+git submodule init
+git submodule update
+
+# Make sure Rails packages are installed
 bundle install
 
 if [ $1 == 'dev' ]; then
@@ -37,6 +41,9 @@ elif [ $1 == 'prod' ]; then
 
   echo '*** Compiling assets ***'
   bundle exec rake assets:precompile
+
+  echo '*** Killing server if it is running ***'
+  pkill --full rails
 
   echo '*** Starting server ***'
   rails server -e production -p $PROD_PORT -d
