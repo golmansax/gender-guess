@@ -34,17 +34,21 @@ class GuessController < ApplicationController
   # If our guess was correct
   def correct
     create_and_save_person(guess_params)
+    $redis.incr('num_correct')
     redirect_to action: 'results'
   end
 
   # If our guess was incorrect
   def incorrect
     create_and_save_person(guess_params, { flip_gender: true })
+    $redis.incr('num_incorrect')
     redirect_to action: 'results'
   end
 
   # Display results on how good the algorithm is (TODO)
   def results
+    @num_correct = redis_get_int('num_correct')
+    @num_incorrect = redis_get_int('num_incorrect')
   end
 
   private
@@ -64,7 +68,9 @@ class GuessController < ApplicationController
       gender = params[:guessed_gender]
       if options[:flip_gender] then gender = Gender.flip(gender) end
 
-      person = Person.new(height: params[:height], weight: params[:weight],
+      person = Person.new(
+        height: params[:height],
+        weight: params[:weight],
         gender: gender
       )
 
@@ -77,5 +83,10 @@ class GuessController < ApplicationController
     def make_person_with_dummy_gender(params)
       params[:gender] = 'M'
       return Person.new(params)
+    end
+
+    def redis_get_int(key)
+      val = $redis.get(key)
+      val ? val.to_i : 0
     end
 end

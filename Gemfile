@@ -6,6 +6,10 @@ gem 'rails', '4.0.1'
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
 
+# Use Redis for counting site stats
+gem 'redis'
+gem 'redis-namespace'
+
 # Use SCSS with Compass for stylesheets
 # NOTE: seems to be broken if we put it in group :assets
 gem 'sass-rails', '~> 4.0.0'
