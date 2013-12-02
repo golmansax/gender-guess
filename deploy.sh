@@ -21,7 +21,7 @@ if [ $# -lt 1 ]; then usage; fi
 
 git pull
 git submodule init
-git submodule update
+git submodule foreach git pull origin master
 
 # Make sure Rails packages are installed
 bundle install

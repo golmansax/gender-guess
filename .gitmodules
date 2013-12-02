@@ -1,3 +1,6 @@
 [submodule "cron/lib/two-var-lin-reg"]
 	path = cron/lib/two-var-lin-reg
 	url = https://github.com/golmansax/two-var-lin-reg
+[submodule "app/assets/stylesheets/my-sass-core"]
+	path = app/assets/stylesheets/my-sass-core
+	url = https://github.com/golmansax/my-sass-core.git

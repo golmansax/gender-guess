@@ -1,13 +1,1 @@
-@import 'core/core';
-
-@import 'compass/reset';
-
-html {
-  font-family: $font-main;
-  font-size: $font-size-text;
-  line-height: 1.5;
-}
-
-body {
-  margin: 1em;
-}
+@import 'my-sass-core/skeletons/basic';
