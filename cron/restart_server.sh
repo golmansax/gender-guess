@@ -17,4 +17,4 @@ make
 
 # Restart Rails server
 cd `git rev-parse --show-toplevel`
-./launch.sh $1
+./deploy.sh $1
