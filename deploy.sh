@@ -20,7 +20,7 @@ wrong_dir() {
 if [ $# -lt 1 ]; then usage; fi
 
 git pull
-git submodule init
+git submodule update --recursive --init
 git submodule foreach git pull origin master
 
 # Make sure Rails packages are installed

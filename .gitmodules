@@ -4,3 +4,6 @@
 [submodule "app/assets/stylesheets/my-sass-core"]
 	path = app/assets/stylesheets/my-sass-core
 	url = https://github.com/golmansax/my-sass-core.git
+[submodule "cron/lib/ocaml-matrix"]
+	path = cron/lib/ocaml-matrix
+	url = https://github.com/golmansax/ocaml-matrix.git
