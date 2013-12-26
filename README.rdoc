@@ -3,7 +3,11 @@
 Small Rails app that asks user for height and weight and tries to guess gender
 from that information.
 
-TODOs:
+*TODOs:*
 - Add unit (lb/kg/cm/in.) checking
 - Make site look prettier
 - Display stats on success rate
+
+*Built with:*
+- Rails
+- Compass (Sass)
