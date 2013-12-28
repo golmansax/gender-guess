@@ -43,7 +43,7 @@ elif [ $1 == 'prod' ]; then
   bundle exec rake assets:precompile
 
   echo '*** Killing server if it is running ***'
-  pkill --full rails
+  pkill --full rails || true
 
   echo '*** Starting server ***'
   rails server -e production -p $PROD_PORT -d
