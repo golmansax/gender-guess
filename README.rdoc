@@ -8,4 +8,4 @@ from that information.
 - Make site look prettier
 - Display stats on success rate
 
-<b>Built with:</b> Rails, Compass (Sass)
+<b>Built with:</b> Rails, Compass (Sass), SQLite, Redis
